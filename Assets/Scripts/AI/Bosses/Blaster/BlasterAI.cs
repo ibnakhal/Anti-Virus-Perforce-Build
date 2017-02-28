@@ -52,6 +52,7 @@ public class BlasterAI : MonoBehaviour
         if(onWall)
         {
             StartCoroutine(MorphToTurret());
+            //StartCoroutine(TopSimpleShoot());
         }
         else
         {
@@ -120,19 +121,6 @@ public class BlasterAI : MonoBehaviour
 
         onWall = false;
     }
-    private IEnumerator Morph()
-    {
-        onWall = true;
-        yield return new WaitForSeconds(Random.Range(3, 6));
-        onWall = false;
-    }
-
-
-
-
-
-
-
     /*private void MorphTop()
     {
         for (int i = 0; i < topBarrels.Length; i++)
