@@ -18,6 +18,7 @@ TagManager:
   - AudioMachine
   - LevelPoint
   - Teleporter
+  - PoisonIvyMain
   layers:
   - Default
   - TransparentFX

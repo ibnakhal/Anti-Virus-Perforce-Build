@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Testing/Ibrahim.unity
+- path: Assets/Scenes/Testing/Yuu Z.unity
   isLoaded: 1
   isActive: 1

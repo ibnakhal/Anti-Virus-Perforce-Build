@@ -4579,3 +4579,13 @@ level 48: //498_AntiVirus/Anti-Virus/Assets/Scenes/Testing/Ibrahim.unity.meta#21
 fstat  "D:/Users/inakhal2/Desktop/705-02GAM_1019/Anti-Virus/Assets/Scenes/Testing/Ibrahim.unity" "D:/Users/inakhal2/Desktop/705-02GAM_1019/Anti-Virus/Assets/Scenes/Testing/Ibrahim.unity.meta" 
 StatusCommand::Run()
 fstat  "D:/Users/inakhal2/Desktop/705-02GAM_1019/Anti-Virus/Assets/Scenes/Testing/Ibrahim.unity" "D:/Users/inakhal2/Desktop/705-02GAM_1019/Anti-Virus/Assets/Scenes/Testing/Ibrahim.unity.meta" 
+Got config end = ''
+login
+License file invalid.
+License expired.
+
+Error: License file invalid.
+License expired.
+
+Login failed
+e32:License file invalid.\nLicense expired.\n

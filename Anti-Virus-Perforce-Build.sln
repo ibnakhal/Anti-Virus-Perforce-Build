@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anti-Virus-Perforce-Build.Plugins", "Anti-Virus-Perforce-Build.Plugins.csproj", "{C62EBDDC-5748-C50F-E348-3531B3CCF041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anti-Virus-Perforce-Build", "Anti-Virus-Perforce-Build.csproj", "{2887D5F9-738B-F390-764E-19C9C6751B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anti-Virus-Perforce-Build.Editor", "Anti-Virus-Perforce-Build.Editor.csproj", "{A8536D4D-3E8E-91E5-489E-D5C1283BA1FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C62EBDDC-5748-C50F-E348-3531B3CCF041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62EBDDC-5748-C50F-E348-3531B3CCF041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62EBDDC-5748-C50F-E348-3531B3CCF041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62EBDDC-5748-C50F-E348-3531B3CCF041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2887D5F9-738B-F390-764E-19C9C6751B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2887D5F9-738B-F390-764E-19C9C6751B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2887D5F9-738B-F390-764E-19C9C6751B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2887D5F9-738B-F390-764E-19C9C6751B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8536D4D-3E8E-91E5-489E-D5C1283BA1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8536D4D-3E8E-91E5-489E-D5C1283BA1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8536D4D-3E8E-91E5-489E-D5C1283BA1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8536D4D-3E8E-91E5-489E-D5C1283BA1FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
