@@ -44,7 +44,7 @@ public class BulletBehavior : MonoBehaviour
         print(Other.tag);
         if (Other.tag == "Enemy" || Other.tag == "Head" || Other.tag == "Baby" || Other.tag == "Boss")
         {
-            Other.gameObject.SendMessage("GetHurt", damage);
+            Other.gameObject.SendMessage("Ouch", damage);
             
 
         }

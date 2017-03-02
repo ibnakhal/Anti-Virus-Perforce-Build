@@ -58,19 +58,31 @@ public class B42DeathManager : MonoBehaviour {
         if (phaseFour.activeSelf == true)
         {
             yield return new WaitForSeconds(1);
-            phaseFour.SetActive(false);
+            while(phaseFour.transform.localScale.x >= 0.1f)
+            {
+                phaseFour.transform.localScale -= Vector3.one * Time.deltaTime * 10;
+                yield return new WaitForSeconds(0.0001f);
+            }
         }
 
         if (phaseThree.activeSelf == true)
         {
-            yield return new WaitForSeconds(1);
-            phaseThree.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            while (phaseThree.transform.localScale.x >= 0.1f)
+            {
+                phaseThree.transform.localScale -= Vector3.one * Time.deltaTime * 10;
+                yield return new WaitForSeconds(0.0001f);
+            }
         }
 
         if (phaseTwo.activeSelf == true)
         {
-            yield return new WaitForSeconds(1);
-            phaseTwo.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            while (phaseTwo.transform.localScale.x >= 0.1f)
+            {
+                phaseTwo.transform.localScale -= Vector3.one * Time.deltaTime * 10;
+                yield return new WaitForSeconds(0.0001f);
+            }
         }
 
         yield return new WaitForSeconds(3);

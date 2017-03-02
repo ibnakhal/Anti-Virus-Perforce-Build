@@ -60,7 +60,7 @@ public class B42BasicBehaviorV2 : MonoBehaviour {
     bool canDie = true;
 
 
-    public void GetHurt(int damage)
+    public void Ouch(int damage)
     {
         health -= damage;
     }
