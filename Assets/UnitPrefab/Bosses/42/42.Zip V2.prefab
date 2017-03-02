@@ -602,6 +602,8 @@ MonoBehaviour:
   phaseFour: {fileID: 1048543922010768}
   deathExplosion: {fileID: 1184439961589098, guid: c4f065dfe10521e4abbe347f716879e1,
     type: 2}
+  deathImplosion: {fileID: 1071398019456704, guid: b097eb9790d42274188a2e164646f7b5,
+    type: 2}
 --- !u!114 &114618395128741352
 MonoBehaviour:
   m_ObjectHideFlags: 1
