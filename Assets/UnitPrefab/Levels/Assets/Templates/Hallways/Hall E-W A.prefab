@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 4561082340981984}
   - component: {fileID: 114700316341065236}
   m_Layer: 0
-  m_Name: E-W Style A
+  m_Name: Hall E-W A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
