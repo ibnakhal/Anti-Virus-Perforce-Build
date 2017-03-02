@@ -65,6 +65,17 @@ public class WeaponsNew : MonoBehaviour
     [SerializeField]
     private GameObject mountTrigger;
 
+    //[MG] Buster Rifle(Wing Zero) vars
+    [SerializeField]
+    private AudioSource busterCharge;
+    [SerializeField]
+    private float busterCool;
+    [SerializeField]
+    private float chargeTime;
+
+    [SerializeField]
+    private bool firing;
+
     [SerializeField]
     private Text ammoCount;
 
@@ -76,7 +87,7 @@ public class WeaponsNew : MonoBehaviour
 
         void Update()
         {
-        if (fireStyle != "Melee")
+        if (fireStyle != "Melee" || fireStyle != "Buster")
         {
             if (currentAmmo == 0)
             {
@@ -91,10 +102,13 @@ public class WeaponsNew : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.R))
                 {
-                    StartCoroutine("ManuReloadGun");
+                    if (fireStyle != "Buster")
+                    {
+                        StartCoroutine("ManuReloadGun");
+                    }
                 }
 
-                if (currentAmmo == 0)
+                if (currentAmmo == 0 && fireStyle != "Buster")
                 {
                     StartCoroutine("ReloadGun");
                 }
@@ -123,20 +137,25 @@ public class WeaponsNew : MonoBehaviour
                         {
                             StartCoroutine("RapidShoot");
                         }
+                        if(fireStyle == "Buster")
+                        {
+                            StartCoroutine("WingZero");
+                        }
                 }
                 }
             }
             if(Input.GetButtonDown("Fire1"))
             {
-                if (fireStyle == "Melee")
-                {
-                    bladesActive = true;
-                }
-                if(idle.activeSelf == true)
+            if (fireStyle == "Melee")
+            {
+                bladesActive = true;
+
+                if (idle.activeSelf == true)
                 {
                     idle.SetActive(false);
                     active.SetActive(true);
                 }
+            }
             }
             if(bladesActive)
             {
@@ -286,6 +305,34 @@ public class WeaponsNew : MonoBehaviour
             Reloading = false;
             print(currentAmmo);
         }
+
+    private IEnumerator WingZero()
+    {
+        if (!firing)
+        {
+            if (isCooledDown)
+            {
+                
+                if (currentAmmo > 0)
+                {
+                    firing = true;
+                    busterCharge.Play();
+                    yield return new WaitForSeconds(chargeTime);
+                    Rigidbody clone = Instantiate(bullet,
+                                                   barrel.transform.position,
+                                                   barrel.transform.rotation) as Rigidbody;
+                    clone.velocity = barrel.transform.forward * shotSpeed;
+                    shotSound.Play();
+                    --currentAmmo;
+                    isCooledDown = false;
+                    yield return new WaitForSeconds(shotCool);
+                    firing = false;
+                    yield return new WaitForSeconds(busterCool);
+                    isCooledDown = true;
+                }
+            }
+        }
+    }
 
     private IEnumerator ManuReloadGun()
     {
