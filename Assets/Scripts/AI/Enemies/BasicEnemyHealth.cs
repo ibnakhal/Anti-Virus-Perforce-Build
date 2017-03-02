@@ -14,6 +14,15 @@ public class BasicEnemyHealth : MonoBehaviour {
     public GameObject[] drops;
     [SerializeField]
     private int dropPercent, truepercent;
+    [SerializeField]
+    private int currentSwelll;
+    [SerializeField]
+    private int swellingLimit;
+    [SerializeField]
+    private float swellingRate;
+
+    private bool hurting = false;
+
     // Use this for initialization
     void Start () {
 	
@@ -24,18 +33,36 @@ public class BasicEnemyHealth : MonoBehaviour {
 	
         if(health <=0)
         {
-            Instantiate(DeathParticles, this.transform.position, this.transform.rotation);
-            toDie.GetComponentInParent<RoomController>().contents.Remove(toDie);
+
+                Instantiate(DeathParticles, this.transform.position, this.transform.rotation);
+                toDie.GetComponentInParent<RoomController>().contents.Remove(toDie);
 
 
-            truepercent = Random.Range(0, 101);
-            if (truepercent <= dropPercent)
-            {
-                GameObject clone = Instantiate(drops[Random.Range(0, drops.Length + 1)], this.transform.position, drops[Random.Range(0, drops.Length + 1)].transform.rotation) as GameObject;
+                truepercent = Random.Range(0, 101);
+                if (truepercent <= dropPercent)
+                {
+                    GameObject clone = Instantiate(drops[Random.Range(0, drops.Length + 1)], this.transform.position, drops[Random.Range(0, drops.Length + 1)].transform.rotation) as GameObject;
 
+                }
+                Destroy(toDie);
             }
-            Destroy(toDie);
 
+        if (currentSwelll < swellingLimit && hurting)
+        {
+            this.gameObject.transform.localScale += new Vector3(swellingRate, swellingRate, swellingRate);
+
+            currentSwelll++;
+            
+        }
+        else
+        {
+            hurting = false;
+            if (currentSwelll > 0)
+            {
+                this.gameObject.transform.localScale -= new Vector3(swellingRate, swellingRate, swellingRate);
+
+                currentSwelll--;
+            }
         }
 
 
@@ -45,8 +72,14 @@ public class BasicEnemyHealth : MonoBehaviour {
     public void Ouch(int Damage)
     {
         health -= Damage;
+        hurting = true;
     }
 
+    public void GetHurt(int Damage)
+    {
+        health -= Damage;
+        hurting = true;
+    }
 
 
 

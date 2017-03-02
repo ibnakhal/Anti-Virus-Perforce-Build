@@ -51,10 +51,13 @@ public class RoomGenerator : MonoBehaviour
 
     void RoomManager()
     {
+
         for (int i = 0; i < totalRoom; i++)
         {
-            if (currentRoom.Count == totalRoom + 1)
+            Debug.Log(currentRoom.Count + " " + totalRoom);
+            if (currentRoom.Count - 1 == totalRoom)
             {
+                Debug.Log(currentRoom.Count);
                 break;
             }
             RoomChecker(currentRoom[i], i);
@@ -67,7 +70,7 @@ public class RoomGenerator : MonoBehaviour
         TeleporterRoom[] doors = _currRoom.GetComponentsInChildren<TeleporterRoom>();
         for (int i = 0; i < doors.Length; i++)
         {
-            if (doors[i].Deposit == null)
+            if (doors[i].Deposit == null && currentRoom.Count - 1 != totalRoom)
             {
                 Vector3 pos = doors[i].ownDeposit.parent.transform.localPosition;
                 Vector3 posCheck = posChecker(pos);
@@ -161,8 +164,8 @@ public class RoomGenerator : MonoBehaviour
                 return teles[i].ownDeposit;
             }
         }
-
-        return null;
+        teles[0].Deposit = teleport;
+        return teles[0].ownDeposit;
 
     }
 
@@ -191,11 +194,15 @@ public class RoomGenerator : MonoBehaviour
         {
             GRevent(roomLoc);
         }
+        Debug.Log("Printing");
         GameObject temp = null;
         if (rand == 0)
         {
             if (bossRoomAmm != 0)
+            {
                 temp = Instantiate(bossRoom[Randomizer(bossRoom)], roomLoc, Quaternion.identity);
+                bossRoomAmm--;
+            }
             else
                 rand++;
         }
@@ -203,7 +210,10 @@ public class RoomGenerator : MonoBehaviour
         if (rand == 1)
         {
             if (lootRoomAmm != 0)
+            {
                 temp = Instantiate(lootRoom[Randomizer(lootRoom)], roomLoc, Quaternion.identity);
+                lootRoomAmm--;
+            }
             else
                 rand++;
         }
@@ -211,7 +221,10 @@ public class RoomGenerator : MonoBehaviour
         if (rand == 2)
         {
             if (miscRoomAmm != 0)
+            {
                 temp = Instantiate(miscRoom[Randomizer(miscRoom)], roomLoc, Quaternion.identity);
+                miscRoomAmm--;
+            }
             else
                 rand++;
         }
@@ -219,12 +232,15 @@ public class RoomGenerator : MonoBehaviour
         if (rand == 3)
         {
             if (enemiesRoomAmm != 0)
+            {
                 temp = Instantiate(enemiesRoom[Randomizer(enemiesRoom)], roomLoc, Quaternion.identity);
+                enemiesRoomAmm--;
+            }
             else
                 GenerateRoom(roomLoc);
         }
 
-
+        Debug.Log(temp);
         currentRoom.Add(temp);
         return temp;
 
