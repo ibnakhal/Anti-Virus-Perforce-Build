@@ -45,6 +45,7 @@ public class TurretHive : MonoBehaviour
         yield return new WaitForSeconds(OpenArmSpawnDelay);
         print("Turret Delpoyed, closing arms");
         GameObject clone = Instantiate(TurretToSpawn, TurretSpawnPoint.transform.position, TurretSpawnPoint.transform.rotation);
+        clone.transform.parent = this.transform.parent;
         yield return new WaitForSeconds(ArmCloseDelay);
         print("Arms closed, resuming movement");
         SpawnAnimation.SetBool("Spawning", false);
